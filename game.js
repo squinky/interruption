@@ -10,16 +10,20 @@ function init()
 	createjs.Ticker.addEventListener("tick", stage);
 	resize();
 	
-	queue = new createjs.LoadQueue(true, "img/");
+	queue = new createjs.LoadQueue(true);
 	queue.on("complete", handleComplete, this);
 	queue.loadManifest
 	([
-		{ id: "bg", src: "bg.png" },
-		{ id: "table", src: "table.png" },
-		{ id: "character-a", src: "character-a.png" },
-		{ id: "character-b", src: "character-b.png" },
-		{ id: "character-c", src: "character-c.png" },
-		{ id: "character-d", src: "character-d.png" }
+		{ id: "bg", src: "img/bg.png" },
+		{ id: "table", src: "img/table.png" },
+		{ id: "character-a", src: "img/character-a.png" },
+		{ id: "character-a-frames", src: "data/character-a.json" },
+		{ id: "character-b", src: "img/character-b.png" },
+		{ id: "character-b-frames", src: "data/character-b.json" },
+		{ id: "character-c", src: "img/character-c.png" },
+		{ id: "character-c-frames", src: "data/character-c.json" },
+		{ id: "character-d", src: "img/character-d.png" },
+		{ id: "character-d-frames", src: "data/character-d.json" }
 	]);
 }
 
@@ -28,7 +32,7 @@ function handleComplete()
 	bg = new createjs.Bitmap(queue.getResult("bg"));
 	
 	characterA = new createjs.Sprite(
-		new createjs.SpriteSheet(characterAFrames), "point-talk"
+		new createjs.SpriteSheet(queue.getResult("character-a-frames")), "point-talk"
 	);
 	characterA.regX = 130;
 	characterA.regY = 520;
@@ -36,7 +40,7 @@ function handleComplete()
 	characterA.y = 705;
 	
 	characterB = new createjs.Sprite(
-		new createjs.SpriteSheet(characterBFrames), "bored"
+		new createjs.SpriteSheet(queue.getResult("character-b-frames")), "bored"
 	);
 	characterB.regX = 126;
 	characterB.regY = 469;
@@ -45,7 +49,7 @@ function handleComplete()
 	characterB.scaleX = -1;
 	
 	characterC = new createjs.Sprite(
-		new createjs.SpriteSheet(characterCFrames), "neutral"
+		new createjs.SpriteSheet(queue.getResult("character-c-frames")), "neutral"
 	);
 	characterC.regX = 115;
 	characterC.regY = 500;
@@ -54,7 +58,7 @@ function handleComplete()
 	characterC.scaleX = -1;
 	
 	characterD = new createjs.Sprite(
-		new createjs.SpriteSheet(characterDFrames), "neutral"
+		new createjs.SpriteSheet(queue.getResult("character-d-frames")), "neutral"
 	);
 	characterD.regX = 132;
 	characterD.regY = 444;
