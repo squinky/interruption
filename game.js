@@ -12,6 +12,7 @@ function init()
 	
 	queue = new createjs.LoadQueue(true);
 	queue.on("complete", handleComplete, this);
+	console.log("Reticulating splines...");
 	queue.loadManifest
 	([
 		{ id: "bg", src: "img/bg.png" },
@@ -23,7 +24,8 @@ function init()
 		{ id: "character-c", src: "img/character-c.png" },
 		{ id: "character-c-frames", src: "data/character-c.json" },
 		{ id: "character-d", src: "img/character-d.png" },
-		{ id: "character-d-frames", src: "data/character-d.json" }
+		{ id: "character-d-frames", src: "data/character-d.json" },
+		{ id: "dialogue", src: "data/dialogue.json" }
 	]);
 }
 

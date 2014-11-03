@@ -1,0 +1,59 @@
+{
+	"origin":
+	[
+		"#filler.capitalize#, it was #superAdjective#. #storyEnd#"
+	],
+	"storyEnd":
+	[
+		"You had to have been there.",
+		"You can't even make this stuff up.",
+		"I am not making this up.",
+		"I'm just saying.",
+		"#filler.capitalize#, I can't even."
+	],
+	"filler":
+	[
+		"like",
+		"oh my god",
+		"um",
+		"uh",
+		"I gotta say",
+		"I'm telling you",
+		"anyway",
+		"like I was saying",
+		"as I was saying",
+		"okay, so",
+		"okay, like",
+		"holy crap",
+		"I mean"
+	],
+	"superAdjective":
+	[
+		"#adjective#",
+		"totally #adjective#",
+		"kinda #adjective#",
+		"pretty #adjective#",
+		"sorta #adjective#",
+		"completely #adjective#",
+		"completely and utterly #adjective#",
+		"amazingly #adjective#",
+		"indescribably #adjective#"
+	],
+	"adjective":
+	[
+		"awesome",
+		"fantastic",
+		"meh",
+		"dreadful",
+		"disgusting",
+		"not bad",
+		"okay",
+		"detestable",
+		"gross",
+		"grody",
+		"ugh",
+		"amazing",
+		"hilarious",
+		"awe-inspiring"
+	]
+}
