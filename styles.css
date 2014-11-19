@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'Comic Neue Angular';
+  src: url('fonts/ComicNeue-Angular-Bold-Oblique.eot'); /* IE9 Compat Modes */
+  src: url('fonts/ComicNeue-Angular-Bold-Oblique.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ComicNeue-Angular-Bold-Oblique.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ComicNeue-Angular-Bold-Oblique.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-weight: 700;
+  font-style: oblique;
+}
+
 body {
 	background: #000;
 	color: #999;
