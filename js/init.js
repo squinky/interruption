@@ -12,7 +12,7 @@ function init()
 {
 	stage = new createjs.Stage("gameCanvas");
 	createjs.Ticker.addEventListener("tick", tick);
-	createjs.Ticker.setFPS(30);
+	createjs.Ticker.setFPS(40);
 	resize();
 	
 	loadText = new createjs.Text();
@@ -29,7 +29,7 @@ function init()
 	clickyBox.alpha = 0.01;
 	clickyBox.addEventListener("click", handleClickyBox);
 	
-	this.document.onkeydown = keydown;
+	this.document.onkeyup = keyup;
 	
 	queue = new createjs.LoadQueue(true);
 	queue.on("complete", loadingComplete, this);
@@ -129,7 +129,7 @@ function tick()
 	stage.update();
 }
 
-function keydown(event)
+function keyup(event)
 {
     keys[event.keyCode] = true;
 }

@@ -4,6 +4,11 @@ var npc = [];
 var bg, table;
 var speaker = -1;
 
+var PLAYER_SPEAKING = 99;
+var BUTTON_DELAY = 1000;
+
+var buttonLastPressed;
+
 function startGame()
 {
 	player.x = 863;
@@ -38,17 +43,46 @@ function startGame()
 
 function gameLoop(keyPressed)
 {
-	if (!currentLine)
+	if (keyPressed == "space")
 	{
-		pickSpeaker();
+		buttonLastPressed = createjs.Ticker.getTime();
 	}
-	updateSpeechBubble();
+	var interval = createjs.Ticker.getTime() - buttonLastPressed;
+	if (interval <= BUTTON_DELAY)
+	{
+		if (speaker == PLAYER_SPEAKING)
+		{
+			if (!currentLine) addToSpeechBubble();
+		}
+		else playerStartSpeaking();
+		updateSpeechBubble(Math.floor(interval/(BUTTON_DELAY/5))+1);
+	}
+	else
+	{
+		if (speaker == PLAYER_SPEAKING)
+		{
+			currentLine = null;
+			player.gotoAndPlay("neutral");
+		}
+		if (!currentLine) pickSpeaker();
+		updateSpeechBubble(1);
+	}
+}
+
+function playerStartSpeaking()
+{
+	currentLine = null;
+	npc[speaker].gotoAndPlay("neutral");
+	speaker = PLAYER_SPEAKING;
+	player.gotoAndPlay("point-talk");
+	turnToFaceSpeaker();
+	initSpeechBubble();
 }
 
 function pickSpeaker()
 {
 	var lastSpeaker = speaker;
-	speaker = Math.floor(Math.random()*3);
+	speaker = Math.floor(Math.random()*npc.length);
 	
 	if (lastSpeaker == speaker)
 	{
@@ -81,7 +115,7 @@ function turnToFaceSpeaker()
 	{
 		npc[1].scaleX = 1;
 	}
-	else if (speaker == 3)
+	else
 	{
 		npc[1].scaleX = 1;
 		npc[2].scaleX = 1;

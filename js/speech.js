@@ -56,29 +56,35 @@ function addToSpeechBubble()
 	currentLine = wordwrap(currentLine, SPEECH_TEXT_WIDTH);
 }
 
-function updateSpeechBubble()
+function updateSpeechBubble(speedModifier)
 {
-	if (!paused) speechText.text += currentLine[currentChar];
-	
-	if (currentLine[currentChar] == '\n')
+	if (!paused)
 	{
-		currentHeight++;
-		if (currentHeight >= SPEECH_TEXT_HEIGHT)
+		speechText.text += currentLine[currentChar];
+	
+		if (currentLine[currentChar] == '\n')
 		{
-			speechText.text = speechText.text.slice(speechText.text.indexOf('\n')+1);
-			currentHeight--;
+			currentHeight++;
+			if (currentHeight >= SPEECH_TEXT_HEIGHT)
+			{
+				speechText.text = speechText.text.slice(speechText.text.indexOf('\n')+1);
+				currentHeight--;
+			}
 		}
 	}
 	
+	console.log(speedModifier);
+	var pauseTime = speedModifier; 
 	if (PUNCTUATION.indexOf(currentLine[currentChar]) >= 0)
 	{
-		if (paused < PUNCTUATION_PAUSE_TIME)
-		{
-			paused++;
-			return;
-		}
-		else paused = 0;
-	} 
+		pauseTime *= PUNCTUATION_PAUSE_TIME;
+	}
+	if (paused < pauseTime-1)
+	{
+		paused++;
+		return;
+	}
+	else paused = 0;
 	
 	currentChar++;
 	if (currentChar >= currentLine.length) currentLine = null;
