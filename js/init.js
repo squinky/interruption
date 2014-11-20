@@ -1,7 +1,7 @@
 var stage;
 var loadText;
 var queue;
-var currentScreen;
+var currentScreen = "loading";
 var keys = [];
 var clickyBox;
 var clicked;
@@ -15,12 +15,10 @@ function init()
 	createjs.Ticker.setFPS(30);
 	resize();
 	
-	this.document.onkeydown = keydown;
-	
 	loadText = new createjs.Text();
 	loadText.font = "bold italic 72px Comic Neue Angular";
 	loadText.text = "LOADING...";
-	loadText.color = "#ffffff";
+	loadText.color = "#000000";
 	loadText.textAlign = "center";
 	loadText.x = 512;
 	loadText.y = 384-36;
@@ -29,7 +27,9 @@ function init()
 	clickyBox = new createjs.Shape();
 	clickyBox.graphics.beginFill("#ffffff").drawRect(0, 0, 1024, 768);
 	clickyBox.alpha = 0.01;
-	clickyBox.addEventListener("click", handleClick);
+	clickyBox.addEventListener("click", handleClickyBox);
+	
+	this.document.onkeydown = keydown;
 	
 	queue = new createjs.LoadQueue(true);
 	queue.on("complete", loadingComplete, this);
@@ -41,6 +41,7 @@ function init()
 		{ id: "arrow", src: "img/arrow.png" },
 		{ id: "bg", src: "img/bg.png" },
 		{ id: "table", src: "img/table.png" },
+		{ id: "speech-bubble", src: "img/speech-bubble.png" },
 		{ id: "character-a", src: "img/character-a.png" },
 		{ id: "character-a-frames", src: "data/character-a.json" },
 		{ id: "character-b", src: "img/character-b.png" },
@@ -93,6 +94,16 @@ function loadingComplete()
 	table.regX = 327;
 	table.regY = 228;
 	
+	speechBubble = new createjs.Container();
+	bubbleSprite = new createjs.Bitmap(queue.getResult("speech-bubble"));
+	speechBubble.addChild(bubbleSprite);
+	speechText = new createjs.Text();
+	speechText.font = "bold italic 32px Comic Neue Angular";
+	speechText.color = "#000000";
+	speechText.x = 40;
+	speechText.y = 40;
+	speechBubble.addChild(speechText);
+	
 	showTitle();
 }
 
@@ -107,6 +118,12 @@ function tick()
 	if (currentScreen == "select") selectLoop(keyPressed);
 	if (currentScreen == "title") titleLoop(keyPressed);
 	
+	if (currentScreen == "loading")
+	{
+		// dealing with FOUT
+		if (createjs.Ticker.getTime() > 500) loadText.color = "#ffffff";
+	}
+	
 	keys = [];
 	clicked = false;
 	stage.update();
@@ -117,7 +134,7 @@ function keydown(event)
     keys[event.keyCode] = true;
 }
 
-function handleClick(event)
+function handleClickyBox(event)
 {
 	clicked = "stage";
 }
