@@ -1,7 +1,7 @@
 var SPEECH_TEXT_WIDTH = 20;
 var SPEECH_TEXT_HEIGHT = 4;
 
-var PUNCTUATION_PAUSE_TIME = 2;
+var PUNCTUATION_PAUSE_TIME = 4;
 var PUNCTUATION = ".,!?";
 
 var speechBubble, bubbleSprite, speechText;
@@ -73,13 +73,12 @@ function updateSpeechBubble(speedModifier)
 		}
 	}
 	
-	console.log(speedModifier);
-	var pauseTime = speedModifier; 
+	var pauseTime = speedModifier;
 	if (PUNCTUATION.indexOf(currentLine[currentChar]) >= 0)
 	{
-		pauseTime *= PUNCTUATION_PAUSE_TIME;
+		pauseTime = PUNCTUATION_PAUSE_TIME*(speedModifier+1);
 	}
-	if (paused < pauseTime-1)
+	if (paused < pauseTime)
 	{
 		paused++;
 		return;

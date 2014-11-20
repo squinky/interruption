@@ -55,7 +55,7 @@ function gameLoop(keyPressed)
 			if (!currentLine) addToSpeechBubble();
 		}
 		else playerStartSpeaking();
-		updateSpeechBubble(Math.floor(interval/(BUTTON_DELAY/5))+1);
+		updateSpeechBubble(Math.floor(interval/(BUTTON_DELAY/5)));
 	}
 	else
 	{
@@ -65,7 +65,7 @@ function gameLoop(keyPressed)
 			player.gotoAndPlay("neutral");
 		}
 		if (!currentLine) pickSpeaker();
-		updateSpeechBubble(1);
+		updateSpeechBubble(0);
 	}
 }
 
