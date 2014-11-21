@@ -11,6 +11,7 @@ window.addEventListener('resize', resize, false);
 function init()
 {
 	stage = new createjs.Stage("gameCanvas");
+	createjs.Touch.enable(stage);
 	createjs.Ticker.addEventListener("tick", tick);
 	createjs.Ticker.setFPS(40);
 	resize();
