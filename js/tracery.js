@@ -1,15 +1,37 @@
 /**
  * @author Kate Compton
+ *  © Copyright 2014 Kate Compton. All rights reserved.
+ * All trademarks and service marks are the properties of their respective owners.
  */
 
 var tracery = (function() {
     var traceCount = 0;
+
+    // Utility functions
     function getSpacer(count) {
         var s = "";
         for (var i = 0; i < count; i++) {
             s += " ";
         }
         return s;
+    };
+
+    var isConsonant = function(c) {
+        c = c.toLowerCase();
+        switch(c) {
+            case 'a':
+                return false;
+            case 'e':
+                return false;
+            case 'i':
+                return false;
+            case 'o':
+                return false;
+            case 'u':
+                return false;
+
+        }
+        return true;
     };
 
     var modificationFunctions = {
@@ -23,11 +45,37 @@ var tracery = (function() {
         capitalize : function(s) {
             return s.charAt(0).toUpperCase() + s.slice(1);
 
+        },
+
+        a : function(s) {
+            if (!isConsonant(s.charAt()))
+                return "an " + s;
+            return "a " + s;
+
+        },
+
+        pluralize : function(s) {
+            return s + "s";
+        },
+
+        ed : function(s) {
+            if (s.charAt(s.length - 1) === 'e')
+                return s + "d";
+
+            if (s.charAt(s.length - 1) === 'y')
+                return s.substring(0, s.length - 1) + "ied";
+
+            return s + "ed";
+
+        },
+
+        s : function(s) {
+            return s + "s";
         }
     };
     // From http://stackoverflow.com/questions/521295/javascript-random-seeds
-    var m_w = 123456789;
-    var m_z = 987654321;
+    var m_w = 32132131;
+    var m_z = 897978933;
     var mask = 0xffffffff;
 
     // Returns number between 0 (inclusive) and 1.0 (exclusive),
@@ -43,6 +91,44 @@ var tracery = (function() {
     //=================================================================================
     //=================================================================================
     //=================================================================================
+    // Building analysis objects
+    function Analysis(grammar) {
+        var analysis = this;
+
+        // Make a copy of the key list
+        this.keyList = grammar.symbolList.slice(0);
+
+        this.symbols = {};
+        // Create an analysis for each key
+        this.keyList.forEach(function(key) {
+            analysis.symbols[key] = analysis.analyzeSymbol(grammar.symbols[key]);
+        });
+    };
+
+    Analysis.prototype.analyzeSymbol = function(symbol) {
+        console.log("Analyzing " + symbol.key);
+        var sym = {
+            links : [],
+        };
+
+        var lengths = [];
+        // create analysis of each rule
+
+        sym.rules = symbol.baseRules.rules.map(function(rule) {
+            // eventually add more impressive stuff
+            return {
+                rule : rule
+            };
+
+        });
+        return sym;
+
+    };
+
+    //=================================================================================
+    //=================================================================================
+    //=================================================================================
+
     function Rule(source) {
         this.source = source;
         // parse this source
@@ -59,7 +145,7 @@ var tracery = (function() {
                 var subsections = section.text.split(".");
                 section.modifiers = subsections.slice(1);
 
-                section.text = subsections[0];
+                section.symbol = subsections[0];
             }
 
             // action
@@ -91,9 +177,8 @@ var tracery = (function() {
                         node.trace.grammar.popRules(section.symbol, traceID);
                     } else {
 
-                        var subtrace = node.trace.grammar.createTraceFromCommand(section.command);
-                        subtrace.expand();
-                        var flat = subtrace.flatten();
+                        var subtrace = node.trace.grammar.createTrace(section.command);
+                        var flat = subtrace.expand().flatten();
                         node.trace.grammar.pushRules(section.symbol, [flat], traceID);
                     }
 
@@ -101,7 +186,7 @@ var tracery = (function() {
 
                 // symbol
                 case 2:
-                    node.addSymbol(section.text, section.modifiers);
+                    node.addSymbol(section.symbol, section.modifiers);
                     break;
             }
         }
@@ -183,10 +268,16 @@ var tracery = (function() {
     //=================================================================================
 
     function RuleSet(symbol, rawRules, distribution) {
+        if (!Array.isArray(rawRules)) {
+            rawRules = [rawRules];
+            console.warn("wrapping single rule in array:" + rawRules);
+        }
+
         this.symbol = symbol;
         this.distribution = distribution;
         this.uses = [];
         //  this.rules = rules.slice();
+
         this.rules = rawRules.map(function(rawSource) {
             return new Rule(rawSource);
         });
@@ -216,7 +307,7 @@ var tracery = (function() {
     //=================================================================================
     //=================================================================================
     // Node object
-    function Node(parent, childIndex, start) {
+    function Node(parent, childIndex, options) {
         if (childIndex < 0) {
             this.trace = parent;
             this.childIndex = 0;
@@ -227,24 +318,38 @@ var tracery = (function() {
             this.depth = parent.depth + 1;
         }
 
-        if ( typeof start === "string")
-            this.key = start;
-        else {
-            this.rule = start;
+        if (options.symbol) {
+            this.type = "symbolExpansion";
+            this.symbol = options.symbol;
+            this.modifiers = options.modifiers;
         }
-        this.texts = [];
+
+        if (options.rule) {
+            this.type = "ruleExpansion";
+            this.rule = options.rule;
+        }
+
+        if (options.plainText) {
+            this.type = "plainText";
+            this.finishedText = options.plainText;
+        }
+        if (this.type === undefined) {
+            console.log(options);
+            throw ("Can't create a node with no type! ");
+        }
+
         this.children = [];
     };
 
     // Turn into bare text
     Node.prototype.flatten = function() {
+        if (this.type === "plainText")
+            return this.finishedText;
 
         var s = "";
         for (var i = 0; i < this.children.length; i++) {
-            if ( typeof this.children[i] === 'string')
-                s += this.children[i];
-            else
-                s += this.children[i].flatten();
+
+            s += this.children[i].flatten();
         }
 
         if (this.modifiers) {
@@ -256,19 +361,36 @@ var tracery = (function() {
     };
 
     Node.prototype.expand = function() {
-        if (this.key && !this.rule) {
-            this.rule = this.trace.grammar.getRule(this.key, this.trace.id);
+
+        if (this.rule) {
+            this.rule.execute(this);
+
+        } else {
+            if (this.symbol) {
+                this.rule = this.trace.grammar.getRule(this.symbol, this.trace.id);
+                this.rule.execute(this);
+            } else {
+                throw ("Neither rule nor symbol! " + this);
+            }
         }
-        this.rule.execute(this);
+
+        return this;
     };
 
     Node.prototype.addText = function(text) {
-        this.children.push(text);
+        var n = new Node(this, this.children.length, {
+            plainText : text
+        });
+
+        this.children.push(n);
+
     };
 
-    Node.prototype.addSymbol = function(key, modifiers) {
-        var n = new Node(this, this.children.length, key);
-        n.modifiers = modifiers;
+    Node.prototype.addSymbol = function(symbol, modifiers) {
+        var n = new Node(this, this.children.length, {
+            symbol : symbol,
+            modifiers : modifiers
+        });
         this.children.push(n);
         n.expand();
     };
@@ -277,28 +399,37 @@ var tracery = (function() {
     //=================================================================================
     //=================================================================================
     // Trace object
-    function Trace(grammar, startSymbol) {
+    function Trace(grammar, options) {
         this.id = traceCount;
         traceCount++;
 
         this.grammar = grammar;
-        this.root = new Node(this, -1, startSymbol);
+        this.root = new Node(this, -1, options);
         //   this.expand(true);
     };
 
     Trace.prototype.expand = function(recursively) {
         this.root.expand(recursively);
         var traceID = this.id;
+
         // Did all the overwrites get undone?
         this.grammar.forAllSymbols(function(symbol) {
             if (symbol.ruleOverrides[traceID] && symbol.ruleOverrides[traceID].length !== 0)
-                throw (symbol.key + " still has " + symbol.ruleOverrides[traceID].length + " overrides! " + symbol.ruleOverrides[traceID].join(","));
+                console.warn(symbol.key + " still has " + symbol.ruleOverrides[traceID].length + " overrides! " + symbol.ruleOverrides[traceID].join(","));
         });
+
+        return this.root;
     };
 
+    // Compress the tree into a single string
     Trace.prototype.flatten = function() {
-
         return this.root.flatten();
+    };
+
+    // Expand and compress the tree into a single string
+    Trace.prototype.expandAndFlatten = function() {
+        this.expand();
+        return this.flatten();
     };
 
     Trace.prototype.debugOutput = function() {
@@ -318,7 +449,12 @@ var tracery = (function() {
     };
 
     Symbol.prototype.getRule = function(traceID) {
-        var override = this.ruleOverrides[traceID];
+        // any universal overrides? (aka, shared between all traces)
+        var override = this.ruleOverrides["universal"];
+
+        // any specific overrides?
+        if (this.ruleOverrides[traceID])
+            override = this.ruleOverrides[traceID];
 
         if (override) {
             return override[override.length - 1].getRule();
@@ -332,6 +468,12 @@ var tracery = (function() {
     };
     //========================================================================
     Symbol.prototype.pushRules = function(rawRules, traceID) {
+        if (!Array.isArray(rawRules)) {
+            console.warn("New rules for " + this.key + "(" + rawRules + ") are not an array");
+            rawRules = [rawRules];
+        }
+        traceID = traceID !== undefined ? traceID : "universal";
+
         var ruleSet = new RuleSet(this, rawRules);
         if (!this.ruleOverrides[traceID])
             this.ruleOverrides[traceID] = [];
@@ -365,20 +507,86 @@ var tracery = (function() {
         this.expansionCount = 0;
         //   variable = (condition) ? true-value : false-value;
         this.title = (source.traceryTitle) ? source.traceryTitle : "Untitled Grammar";
-        this.originWord = (source.traceryOrigin) ? source.traceryOrigin : "origin";
+        this.startSymbol = "origin";
         this.sourceRules = (source.rules) ? source.rules : source;
 
         // Set up the symbol library
         this.symbols = [];
-        var symbolList = Object.keys(this.sourceRules);
+        this.symbolList = Object.keys(this.sourceRules);
 
-        for (var i = 0; i < symbolList.length; i++) {
-            var key = symbolList[i];
+        for (var i = 0; i < this.symbolList.length; i++) {
+            var key = this.symbolList[i];
 
             // Create a symbol object
             grammar.symbols[key] = new Symbol(this, key);
             grammar.symbols[key].createBaseRules(this.sourceRules[key]);
         }
+
+    };
+
+    Grammar.prototype.createAnalysis = function() {
+
+        return new Analysis(this);
+        console.log("Analyzing Grammar " + this.name);
+        var symbolList = Object.keys(this.sourceRules);
+        console.log("   " + symbolList.length + " symbols:");
+        console.log("   " + symbolList.join(", "));
+
+        var pushList = {};
+        var unknownSymbols = [];
+
+        for (var i = 0; i < symbolList.length; i++) {
+            var spacer = "    ";
+            var key = symbolList[i];
+            var symbol = this.symbols[key];
+            var rules = symbol.baseRules.rules;
+            console.log(spacer + key + ": " + rules.length + " rules");
+            var totalLength = 0;
+            var counts = {
+
+                plain : 0,
+                symbol : 0,
+                mod : 0,
+                push : 0,
+                pop : 0,
+            };
+
+            // analyze rules
+            for (var j = 0; j < rules.length; j++) {
+                totalLength += rules[j].source.length;
+                for (var k = 0; k < rules[j].sections.length; k++) {
+                    var section = rules[j].sections[k];
+                    switch(section.type) {
+                        case 0:
+                            counts.plain++;
+                            break;
+                        case 1:
+                            // Add to a list of when this is pushed, and by what
+                            if (section.command === "pop") {
+                                counts.pop++;
+
+                            } else {
+                                counts.push++;
+                                if (!pushList[section.command])
+                                    pushList[section.command] = [];
+                                pushList[section.command].push(key);
+                            }
+                            break;
+                        case 2:
+                            counts.symbol++;
+                            var symbol = this.symbols[section.symbol];
+                            if (symbol === undefined) {
+                                unknownSymbols.push(section.symbol);
+                            } else {
+
+                            }
+
+                    }
+                }
+            }
+            var avg = totalLength / rules.length;
+        };
+        console.log("unknownSymbols: " + unknownSymbols.join(", "));
 
     };
 
@@ -409,21 +617,37 @@ var tracery = (function() {
             this.symbols[key].popRules(traceID);
     };
 
-    // Add methods like this.  All Person objects will be able to invoke this
+    Grammar.prototype.createFlattened = function(rule) {
+
+        var trace = this.createTrace(rule);
+        var flat = trace.expand().flatten();
+
+        return flat;
+    };
+
+    // Call with nothing, will use the base trace
+    Grammar.prototype.createTrace = function(rule) {
+        this.expansionCount++;
+        if (rule)
+            return new Trace(this, {
+                rule : new Rule(rule)
+            });
+
+        // use start if nothing provided
+        return new Trace(this, {
+            symbol : this.startSymbol
+        });
+    };
+
     Grammar.prototype.createTraceFromSymbol = function(symbol) {
         this.expansionCount++;
 
-        symbol = symbol ? symbol : this.originWord;
+        // use start if nothing provided
+        symbol = symbol ? symbol : this.startSymbol;
 
-        return new Trace(this, symbol);
-    };
-
-    Grammar.prototype.createTraceFromCommand = function(command) {
-        this.expansionCount++;
-
-        command = command ? command : "#" + this.originWord + "#";
-
-        return new Trace(this, new Rule(command));
+        return new Trace(this, {
+            symbol : symbol
+        });
     };
 
     Grammar.prototype.debugOutput = function() {
@@ -441,9 +665,9 @@ var tracery = (function() {
 
         createGrammar : function(obj) {
             console.log("load grammar: " + obj);
-            return new Grammar(obj);
+            var grammar = new Grammar(obj);
+            return grammar;
         },
     };
 
 })();
-

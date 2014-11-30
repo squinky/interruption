@@ -1,4 +1,4 @@
-var SPEECH_TEXT_WIDTH = 20;
+var SPEECH_TEXT_WIDTH = 18;
 var SPEECH_TEXT_HEIGHT = 4;
 
 var PUNCTUATION_PAUSE_TIME = 4;
@@ -9,7 +9,7 @@ var lastLine, currentLine, currentChar, currentHeight, paused;
 
 function initSpeechBubble()
 {
-	var newLine = "So, like, okay, I know none of this, like, means anything or whatever, but I just want to let you know, you know, about the thing about the you know what, you know what I mean?";
+	var newLine = getNewLine();
 	lastLine = newLine;
 	currentLine = lastLine.toUpperCase();
 	currentLine = wordwrap(currentLine, SPEECH_TEXT_WIDTH);
@@ -50,7 +50,7 @@ function initSpeechBubble()
 
 function addToSpeechBubble()
 {
-	var newLine = "And, you know, so, there's like this thing about the, you know, the banana or something? I'm so confused. What is this, even?";
+	var newLine = getContinuingLine();
 	lastLine = lastLine+" "+newLine;
 	currentLine = lastLine.toUpperCase();
 	currentLine = wordwrap(currentLine, SPEECH_TEXT_WIDTH);

@@ -59,6 +59,8 @@ function loadingComplete()
 {
 	stage.removeChild(loadText);
 	
+	grammar = tracery.createGrammar(queue.getResult("dialogue"));
+	
 	title = new createjs.Bitmap(queue.getResult("title"));
 	titleBg = new createjs.Bitmap(queue.getResult("title-bg"));
 	leftArrow = new createjs.Bitmap(queue.getResult("arrow"));

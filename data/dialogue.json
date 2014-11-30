@@ -1,31 +1,145 @@
 {
-	"origin":
+	"startConvo":
 	[
-		"#filler.capitalize#, it was #superAdjective#. #storyEnd#"
+		"#filler.capitalize#, I was #out# with #friend# and #otherFriend# #someTime#, and #thingHappened#.",
+		"#filler.capitalize#, #someTime#, #friend# and #otherFriend# and I were #out#, and #thingHappened#."
 	],
-	"storyEnd":
+	"continueConvo":
 	[
+		"#anotherThingHappened.capitalize#.",
+		"So then, #anotherThingHappened#.",
+		"And then, get this, #anotherThingHappened#.",
+		"And that's not even the best part. #anotherThingHappened.capitalize#.",
+		"Oh, and I almost forgot: #anotherThingHappened#.",
+		"#filler.capitalize#, it was #superAdjective#. #justSaying#"
+	],
+	"respondToConvo":
+	[
+	],
+	"name":
+	[
+		"Jamie", "Jackie", "Fred", "Dominique", "Valentine", "Rickie", "Shawn", "Devon", "Casey", "Kieran", "Quinn", "Ainsley", "Morgan", "Mackenzie", "Skeeter", "Nico", "Andy", "Kris", "Ivan", "Rae", "Damien", "Leslie", "Rowan", "Spike", "Storm", "Jess", "Maddox", "Kim", "Frankie", "Nick", "Nicky", "Jules", "Sky", "Rory", "Corey", "Alex", "Alexis", "Danny", "Leaf", "River", "Leigh", "Marty", "Darcy", "Charlie", "Ziggy", "Alonzo", "Aloysius", "Callisto", "Ocean", "Jean-Marie", "Laurence", "Ed", "Theo", "Dietrich", "Jo", "Jo-Jo", "Luca", "Mal", "Ronnie", "Su", "Felix"
+	],
+	"person":
+	[
+		"#age# #gender#",
+		"#gender# with #accessory.a#",
+		"#age# #gender# with #accessory.a#"
+	],
+	"age":
+	[
+		"teenage", "old", "middle-aged", "twentysomething", "thirtysomething", "fortysomething", "uncannily youthful", "elderly"
+	],
+	"gender":
+	[
+		"woman", "man", "guy", "gal", "butch", "femme", "androgyne", "birl", "cutie", "radical faerie", "nun", "wizard", "lady", "gentleman", "cyborg", "person of mysterious and indistinct gender", "human", "priest", "goddess", "Magical Girl", "heartthrob", "silver fox", "bear", "businessman", "businesswoman", "brony", "private detective"
+	],
+	"accessory":
+	[
+		"pet monkey", "tiara", "impossibly elaborate hat", "hurdy gurdy", "sense of adventure", "small child", "enormous Louis Vuitton suitcase", "fixie bike", "Ovation guitar", "pair of six-inch stilettos", "penchant for creative curses", "beautiful singing voice", "bouquet of white roses", "fedora", "trilby hat", "pair of light-up sneakers", "spiky Mario backpack", "posse of rainbow-haired punks"
+	],
+	"out":
+	[
+		"out",
+		"at the #location#",
+		"at this #location#",
+		"in some #location#",
+		"checking out that #location#",
+		"hanging out in the city",
+		"wandering around aimlessly",
+		"bumming around"
+	],
+	"location":
+	[
+		"hole-in-the-wall #superFood# joint", "fancy #superFood# restaurant", "secret #superFood# place", "#superNationality# pub", "#adjective# dive bar", "#adjective# gastropub", "#adjective# speakeasy", "#adjective# coffee shop", "#adjective# hookah bar", "#superNationality# tea house"
+	],
+	"superFood":
+	[
+		"#food#",
+		"#food# and #food#",
+		"#superNationality# #food#",
+		"vegan #food#"
+	],
+	"food":
+	[
+		"curry", "pizza", "burrito", "taco", "spaghetti", "nachos", "poutine", "tapas", "BBQ", "meatball", "sushi", "dumpling", "pho", "banh mi", "jambalaya", "lasagna", "fried chicken", "borscht", "samosa", "perogy", "burger", "pita", "shawarma", "falafel", "salad", "pie", "cake", "dim sum", "crepe"
+	],
+	"superNationality":
+	[
+		"#nationality#",
+		"#nationality#-#nationality#"
+	],
+	"nationality":
+	[
+		"Canadian", "American", "Filipino", "Indian", "Persian", "Mexican", "Spanish", "French", "Irish", "British", "Welsh", "Scottish", "Serbian", "Croatian", "Macedonian", "Danish", "Swedish", "Norwegian", "Finnish", "Chinese", "Japanese", "Singaporean", "Thai", "Malaysian", "Hungarian", "German", "Austrian", "Australian", "Nepalese", "Ethiopian", "Vietnamese", "Quebecois", "Acadian", "Creole", "Korean", "Mongolian", "Russian", "Ukrainian", "Brazilian", "Chilean", "Jamaican"
+	],
+	"someTime":
+	[
+		"the other day", "yesterday", "earlier today", "a couple #timePeriod.s# ago", "a few #timePeriod.s# ago", "just last #longerTimePeriod#", "sometime last #longerTimePeriod#"
+	],
+	"timePeriod":
+	[
+		"hour", "day", "#longerTimePeriod#"
+	],
+	"longerTimePeriod":
+	[
+		"week", "month", "year"
+	],
+	"thingHappened":
+	[
+		"#thisPerson# came up and #didSomething#",
+		"#thisPerson# walked over and #didSomething#",
+		"#otherFriend# literally walked into #thisPerson#, who then #didSomething#",
+		"#friend# wound up talking to #thisPerson# for, like, #timePeriod.s#",
+		"we saw #thisPerson#, who noticed us and #didSomething#",
+		"#otherFriend# dared #friend# to talk to #thisPerson#, who then #didSomething#"
+	],
+	"anotherThingHappened":
+	[
+		"the #stranger# #didSomething#",
+		"#otherFriend# started to motion for us to leave, but the #stranger# stopped us and #didSomething#",
+		"#friend# brought up #currentEvent#, and suddenly, the #stranger# just wouldn't shut up",
+		"#otherFriend# got bored and just left me and #friend# there with the #stranger#; apparently #otherFriend# was at the #location# next door the whole time and we didn't notice",
+		"I went to the bathroom, and when I came back, the #stranger# was still there, deep in conversation with #friend#",
+		"#otherFriend# and I started talking about #currentEvent#, and the #stranger# just wouldn't take a hint",
+		"#friend# and the #stranger# went somewhere for a while, and they must have had a good time because it felt like #otherFriend# and I were waiting for #timePeriod.s#"
+	],
+	"thisPerson":
+	[
+		"this #stranger#",
+		"some #stranger#",
+		"#stranger.a#"
+	],
+	"didSomething":
+	[
+		"asked us for change",
+		"asked for a smoke",
+		"told us we looked familiar",
+		"said \"oops, I thought you were someone else\" and then left",
+		"asked if we could solve the Sudoku in today's paper",
+		"asked if we knew a good babysitter",
+		"asked if we knew any good jokes",
+		"told us a really corny dad joke",
+		"sniffed #otherFriend# suspiciously",
+		"complimented #friend#'s hair",
+		"made fun of #otherFriend#'s outfit",
+		"hit on #friend# while completely ignoring #otherFriend# and me"
+	],
+	"currentEvent":
+	[
+		"Ferguson", "Palestine", "Ebola", "same-sex marriage", "the new Star Wars movie", "climate change", "ethics in games journalism", "the war on Christmas"
+	],
+	"justSaying":
+	[
+		"I'm just saying.",
 		"You had to have been there.",
 		"You can't even make this stuff up.",
 		"I am not making this up.",
-		"I'm just saying.",
 		"#filler.capitalize#, I can't even."
 	],
 	"filler":
 	[
-		"like",
-		"oh my god",
-		"um",
-		"uh",
-		"I gotta say",
-		"I'm telling you",
-		"anyway",
-		"like I was saying",
-		"as I was saying",
-		"okay, so",
-		"okay, like",
-		"holy crap",
-		"I mean"
+		"#filler#, #filler#", "like", "oh my god", "um", "uh", "so", "I gotta say", "I'm telling you", "anyway", "like I was saying", "as I was saying", "okay, so", "okay, like", "holy crap", "I mean", "now that I think about it", "you know", "for sure", "actually"
 	],
 	"superAdjective":
 	[
@@ -41,19 +155,6 @@
 	],
 	"adjective":
 	[
-		"awesome",
-		"fantastic",
-		"meh",
-		"dreadful",
-		"disgusting",
-		"not bad",
-		"okay",
-		"detestable",
-		"gross",
-		"grody",
-		"ugh",
-		"amazing",
-		"hilarious",
-		"awe-inspiring"
+		"awesome", "fantastic", "meh", "dreadful", "disgusting", "not bad", "okay", "detestable", "gross", "grody", "ugh", "amazing", "hilarious", "awe-inspiring", "weird", "bizarre", "cool", "neat"
 	]
 }

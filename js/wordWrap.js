@@ -2,7 +2,7 @@ function wordwrap( str, width, brk, cut ) {
  
     brk = brk || '\n';
     width = width || 75;
-    cut = cut || false;
+    cut = cut || true;
  
     if (!str) { return str; }
  
