@@ -15,10 +15,25 @@
 	],
 	"respondToConvo":
 	[
+		"#exclamation.capitalize#, seriously?",
+		"#exclamation.capitalize#, that sounds #superAdjective#.",
+		"#exclamation.capitalize#, I think I've seen that #stranger# before, but I forget where.",
+		"Was that the same #stranger# from the #location#?",
+		"Leave it to #friend# to put people in #adjective# situations.",
+		"#exclamation.capitalize#, #otherFriend# can be so #adjective# sometimes.",
+		"I haven't seen #friend# in a while. Good to know they're doing okay.",
+		"I haven't hung out with #otherFriend# in ages, and now I know why.",
+		"#exclamation.capitalize#, I haven't seen #friend# since we went to the #location# last #longerTimePeriod#.",
+		"#exclamation.capitalize#, I miss #otherFriend# and their #adjective# hijinks.",
+		"I see #otherFriend# is #emotion# as usual these days.",
+		"Last time I saw #friend#, they were with that #person#... #name#, was it?",
+		"#exclamation.capitalize#, I wish I coulda been there.",
+		"#exclamation.capitalize#, I hope #friend#'s doing okay. Haven't seen them in forever.",
+		"#exclamation.capitalize#, I haven't seen much of #otherFriend# since the breakup with #name#, and I'm mostly #emotion# about that."
 	],
 	"name":
 	[
-		"Jamie", "Jackie", "Fred", "Dominique", "Valentine", "Rickie", "Shawn", "Devon", "Casey", "Kieran", "Quinn", "Ainsley", "Morgan", "Mackenzie", "Skeeter", "Nico", "Andy", "Kris", "Ivan", "Rae", "Damien", "Leslie", "Rowan", "Spike", "Storm", "Jess", "Maddox", "Kim", "Frankie", "Nick", "Nicky", "Jules", "Sky", "Rory", "Corey", "Alex", "Alexis", "Danny", "Leaf", "River", "Leigh", "Marty", "Darcy", "Charlie", "Ziggy", "Alonzo", "Aloysius", "Callisto", "Ocean", "Jean-Marie", "Laurence", "Ed", "Theo", "Dietrich", "Jo", "Jo-Jo", "Luca", "Mal", "Ronnie", "Su", "Felix"
+		"Jamie", "Jackie", "Fred", "Dominique", "Valentine", "Rickie", "Shawn", "Devon", "Casey", "Kieran", "Quinn", "Ainsley", "Morgan", "Mackenzie", "Skeeter", "Nico", "Andy", "Kris", "Ivan", "Rae", "Damien", "Leslie", "Rowan", "Spike", "Storm", "Jess", "Maddox", "Kim", "Frankie", "Nick", "Nicky", "Jules", "Sky", "Rory", "Corey", "Alex", "Alexis", "Danny", "Leaf", "River", "Leigh", "Marty", "Darcy", "Charlie", "Ziggy", "Alonzo", "Aloysius", "Callisto", "Ocean", "Jean-Marie", "Laurence", "Ed", "Theo", "Dietrich", "Jo", "Jo-Jo", "Luca", "Mal", "Ronnie", "Su", "Felix", "Patrice"
 	],
 	"person":
 	[
@@ -36,7 +51,7 @@
 	],
 	"accessory":
 	[
-		"pet monkey", "tiara", "impossibly elaborate hat", "hurdy gurdy", "sense of adventure", "small child", "enormous Louis Vuitton suitcase", "fixie bike", "Ovation guitar", "pair of six-inch stilettos", "penchant for creative curses", "beautiful singing voice", "bouquet of white roses", "fedora", "trilby hat", "pair of light-up sneakers", "spiky Mario backpack", "posse of rainbow-haired punks"
+		"pet monkey", "tiara", "impossibly elaborate hat", "hurdy gurdy", "sense of adventure", "small child", "enormous Louis Vuitton suitcase", "fixie bike", "Ovation guitar", "pair of six-inch stilettos", "penchant for creative curses", "beautiful singing voice", "bouquet of white roses", "fedora", "trilby hat", "pair of light-up sneakers", "spiky Mario backpack", "posse of rainbow-haired punks", "pair of galaxy leggings", "sarong made from curtains"
 	],
 	"out":
 	[
@@ -102,7 +117,15 @@
 		"#otherFriend# got bored and just left me and #friend# there with the #stranger#; apparently #otherFriend# was at the #location# next door the whole time and we didn't notice",
 		"I went to the bathroom, and when I came back, the #stranger# was still there, deep in conversation with #friend#",
 		"#otherFriend# and I started talking about #currentEvent#, and the #stranger# just wouldn't take a hint",
-		"#friend# and the #stranger# went somewhere for a while, and they must have had a good time because it felt like #otherFriend# and I were waiting for #timePeriod.s#"
+		"#friend# and the #stranger# went somewhere for a while, and they must have had #adjective.a# time because it felt like #otherFriend# and I were waiting for #timePeriod.s#",
+		"#name# showed up, but only for like a second -- #otherFriend# was #emotion# about that, as you can imagine",
+		"#otherFriend# got completely wasted",
+		"#friend# got kinda drunk and tried to kiss me... it was #superAdjective#",
+		"#friend# started #verbing#, and I joined in, and after awhile, so did #otherFriend#, #adverbly#",
+		"we saw #name# walking past us on the street, who didn't notice us at all",
+		"#otherFriend# and I made up this #art# about #currentEvent#, and #friend# was totally #emotion#",
+		"we saw #name# with a random #person#, and I tried to say hi, but was ignored",
+		"when I went to the bathroom, I saw that someone wrote inflammatory graffiti about #currentEvent#, and I thought it was #superAdjective#"
 	],
 	"thisPerson":
 	[
@@ -116,8 +139,8 @@
 		"asked for a smoke",
 		"told us we looked familiar",
 		"said \"oops, I thought you were someone else\" and then left",
-		"asked if we could solve the Sudoku in today's paper",
-		"asked if we knew a good babysitter",
+		"asked if we could solve the #puzzle# in today's paper",
+		"asked if we knew a good #serviceOccupation#",
 		"asked if we knew any good jokes",
 		"told us a really corny dad joke",
 		"sniffed #otherFriend# suspiciously",
@@ -127,7 +150,31 @@
 	],
 	"currentEvent":
 	[
-		"Ferguson", "Palestine", "Ebola", "same-sex marriage", "the new Star Wars movie", "climate change", "ethics in games journalism", "the war on Christmas"
+		"Ferguson", "Palestine", "Ebola", "same-sex marriage", "the new Star Wars movie", "climate change", "ethics in games journalism", "the war on Christmas", "abortion", "marijuana legalization", "Iraq", "immigration reform", "women in tech", "real-name policies"
+	],
+	"emotion":
+	[
+		"happy", "sad", "pissed off", "not happy", "bummed", "nonplussed", "annoyed", "upset", "thrilled", "sunshine, lollipops, and rainbows", "embarrassed"
+	],
+	"verbing":
+	[
+		"dancing", "singing", "arguing with random people about #currentEvent#", "taking selfies", "asking cuties for their numbers", "telling jokes"
+	],
+	"adverbly":
+	[
+		"begrudgingly", "quietly", "secretly enjoying it"
+	],
+	"art":
+	[
+		"song", "dance", "sonnet", "limerick", "haiku", "videogame", "sestina", "interpretive dance", "ballet", "opera", "rock opera"
+	],
+	"puzzle":
+	[
+		"Sudoku", "crossword"
+	],
+	"serviceOccupation":
+	[
+		"babysitter", "plumber", "piano teacher", "curator", "private chef", "orthodontist", "gynaecologist", "wedding band", "magician", "psychic", "yoga instructor"
 	],
 	"justSaying":
 	[
@@ -139,7 +186,7 @@
 	],
 	"filler":
 	[
-		"#filler#, #filler#", "like", "oh my god", "um", "uh", "so", "I gotta say", "I'm telling you", "anyway", "like I was saying", "as I was saying", "okay, so", "okay, like", "holy crap", "I mean", "now that I think about it", "you know", "for sure", "actually"
+		"#filler#, #filler#", "#exclamation#", "like", "um", "uh", "so", "I gotta say", "I'm telling you", "anyway", "like I was saying", "as I was saying", "okay, so", "okay, like", "I mean", "now that I think about it", "you know", "for sure", "actually"
 	],
 	"superAdjective":
 	[
@@ -155,6 +202,10 @@
 	],
 	"adjective":
 	[
-		"awesome", "fantastic", "meh", "dreadful", "disgusting", "not bad", "okay", "detestable", "gross", "grody", "ugh", "amazing", "hilarious", "awe-inspiring", "weird", "bizarre", "cool", "neat"
+		"awesome", "fantastic", "meh", "dreadful", "disgusting", "not bad", "okay", "detestable", "gross", "grody", "ugh", "amazing", "hilarious", "awe-inspiring", "weird", "bizarre", "cool", "neat", "annoying", "good", "nice", "fun"
+	],
+	"exclamation":
+	[
+		"whoa", "man", "holy crap", "oh my god", "damn", "ack", "ugh", "gross", "haha", "LOL", "urgh", "gah"
 	]
 }

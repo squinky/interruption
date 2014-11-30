@@ -1,18 +1,31 @@
 var grammar;
+var convoLength, convoCurrent, storyteller;
 var friend, otherFriend, stranger;
 
-function getNewLine()
+function startNewConvo()
 {
+	convoLength = 5+Math.floor(Math.random()*5);
+	convoCurrent = 0;
+	storyteller = speaker;
 	friend = grammar.createFlattened("#name#");
 	otherFriend = grammar.createFlattened("#name#");
 	stranger = grammar.createFlattened("#person#");
-	
-	return getLine("#startConvo#");
 }
 
-function getContinuingLine()
+function getNewLine()
 {
-	return getLine("#continueConvo#");
+	if (!convoLength)
+	{
+		startNewConvo();
+		return getLine("#startConvo#");
+	}
+	else
+	{
+		convoCurrent++;
+		if (convoCurrent >= convoLength) convoLength = 0;
+		if (storyteller == speaker) return getLine("#continueConvo#");
+		else return getLine("#respondToConvo#");
+	}
 }
 
 function getLine(str)

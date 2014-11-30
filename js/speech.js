@@ -50,7 +50,7 @@ function initSpeechBubble()
 
 function addToSpeechBubble()
 {
-	var newLine = getContinuingLine();
+	var newLine = getNewLine();
 	lastLine = lastLine+" "+newLine;
 	currentLine = lastLine.toUpperCase();
 	currentLine = wordwrap(currentLine, SPEECH_TEXT_WIDTH);
