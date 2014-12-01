@@ -52,6 +52,9 @@ function changePlayer()
 	player = characters[selectedCharacter];
 	player.x = 512;
 	player.y = 700;
+	player.alpha = 1;
+	player.scaleX = 1;
+	player.gotoAndPlay("neutral");
 }
 
 function selectLoop(keyPressed)

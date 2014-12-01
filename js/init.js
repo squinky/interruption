@@ -26,7 +26,7 @@ function init()
 	stage.addChild(loadText);
 	
 	clickyBox = new createjs.Shape();
-	clickyBox.graphics.beginFill("#ffffff").drawRect(0, 0, 1024, 768);
+	clickyBox.graphics.beginFill("#000000").drawRect(-1, -1, 1026, 770);
 	clickyBox.alpha = 0.01;
 	clickyBox.addEventListener("click", handleClickyBox);
 	

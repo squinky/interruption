@@ -55,6 +55,9 @@ var tracery = (function() {
         },
 
         pluralize : function(s) {
+            if (s.charAt(s.length - 1) === 's')
+                return s + "es";
+
             return s + "s";
         },
 
@@ -70,6 +73,9 @@ var tracery = (function() {
         },
 
         s : function(s) {
+            if (s.charAt(s.length - 1) === 's')
+                return s + "es";
+
             return s + "s";
         }
     };

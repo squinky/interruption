@@ -18,6 +18,7 @@ function initSpeechBubble()
 	paused = 0;
 	speechText.text = "";
 	
+	speechBubble.alpha = 1;
 	if (speaker == 0)
 	{
 		speechBubble.x = 10;
