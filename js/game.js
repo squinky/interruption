@@ -109,6 +109,7 @@ function gameLoop(keyPressed)
 				npcFade += timeSinceLastTick;
 				for (var i = 0; i < npc.length; i++)
 				{
+					npc[i].gotoAndPlay("bored");
 					npc[i].alpha = (CHARACTER_FADE_TIME-npcFade)/CHARACTER_FADE_TIME;
 				}
 				if (npc[0].alpha <= 0) gameOver = true;
@@ -128,6 +129,7 @@ function gameLoop(keyPressed)
 			for (var i = 0; i < npc.length; i++)
 			{
 				npc[i].alpha = 1;
+				npc[i].gotoAndPlay("neutral");
 			}
 			currentLine = null;
 			player.gotoAndPlay("neutral");
@@ -137,6 +139,7 @@ function gameLoop(keyPressed)
 		
 		if (buttonPressInterval >= START_FADING)
 		{
+			player.gotoAndPlay("bored");
 			playerFade += timeSinceLastTick;
 			player.alpha = (CHARACTER_FADE_TIME-playerFade)/CHARACTER_FADE_TIME;
 			if (player.alpha <= 0) gameOver = true;
@@ -147,7 +150,7 @@ function gameLoop(keyPressed)
 function playerStartSpeaking()
 {
 	currentLine = null;
-	npc[speaker].gotoAndPlay("neutral");
+	npc[speaker].gotoAndPlay("bored");
 	speaker = PLAYER_SPEAKING;
 	player.gotoAndPlay("point-talk");
 	turnToFaceSpeaker();
