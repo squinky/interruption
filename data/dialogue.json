@@ -84,7 +84,7 @@
 	],
 	"gender":
 	[
-		"woman", "man", "guy", "gal", "butch", "femme", "androgyne", "birl", "cutie", "radical faerie", "nun", "wizard", "lady", "gentleman", "cyborg", "person of mysterious and indistinct gender", "human", "priest", "goddess", "Magical Girl", "heartthrob", "silver fox", "bear", "businessman", "businesswoman", "brony", "private detective"
+		"woman", "man", "guy", "gal", "butch", "femme", "androgyne", "birl", "cutie", "radical faerie", "nun", "wizard", "lady", "gentleman", "cyborg", "person of mysterious and indistinct gender", "human", "priest", "goddess", "Magical Girl", "heartthrob", "silver fox", "bear", "businessman", "businesswoman", "brony", "private detective", "executive transvestite", "Missingno.", "tentacle monster", "slime babe", "femme fatale", "homme fatale", "ghost"
 	],
 	"accessory":
 	[
@@ -191,7 +191,7 @@
 	],
 	"performance":
 	[
-		"song", "dance", "sonnet", "limerick", "haiku", "sestina", "interpretive dance", "ballet", "opera", "rock opera", "one-act play", "performance art piece"
+		"song", "dance", "sonnet", "limerick", "haiku", "sestina", "interpretive dance", "ballet", "opera", "rock opera", "one-act play", "performance art piece", "comedy sketch"
 	],
 	"puzzle":
 	[
@@ -199,15 +199,15 @@
 	],
 	"serviceOccupation":
 	[
-		"babysitter", "plumber", "piano teacher", "curator", "private chef", "orthodontist", "gynaecologist", "wedding singer", "magician", "psychic", "yoga instructor", "juggler", "horticulturalist", "decorator", "show choir director"
+		"babysitter", "plumber", "piano teacher", "curator", "private chef", "orthodontist", "gynaecologist", "wedding singer", "magician", "psychic", "yoga instructor", "juggler", "horticulturalist", "decorator", "show choir director", "living statue", "midwife", "doula"
 	],
 	"animal":
 	[
-		"cat", "dog", "monkey", "elephant", "giraffe", "hippopotamus", "rhinoceros", "rat", "hamster", "pig", "chicken", "turkey", "iguana", "lizard", "alpaca", "llama", "emu", "flamingo", "bear", "otter", "cougar"
+		"cat", "dog", "monkey", "elephant", "giraffe", "hippopotamus", "rhinoceros", "rat", "hamster", "pig", "chicken", "turkey", "iguana", "lizard", "alpaca", "llama", "emu", "flamingo", "bear", "otter", "cougar", "whale", "pigeon"
 	],
 	"game":
 	[
-		"videogame", "interactive #performance#", "Twine game", "interactive fiction game", "visual novel", "board game", "card game", "dating sim"
+		"videogame", "interactive #performance#", "Twine game", "interactive fiction game", "visual novel", "board game", "card game", "dating sim", "live-action roleplaying game"
 	],
 	"gamePremise":
 	[
@@ -230,7 +230,7 @@
 	],
 	"sillyVerb":
 	[
-		"read things", "read tea leaves", "flirt", "kiss cuties", "make #animal# noises", "perform silly walks", "do jumping jacks", "dance", "sing", "collect gossip", "roll around in a ball", "stare at butts", "pet #animal.s#", "clip toenails", "slurp spaghetti", "Highland dance", "waltz", "swordfight in slow motion", "ride #animal.a#", "work as #serviceOccupation.a#"
+		"read things", "read tea leaves", "flirt", "kiss cuties", "make #animal# noises", "perform silly walks", "do jumping jacks", "dance", "sing", "collect gossip", "roll around in a ball", "stare at butts", "pet #animal.s#", "clip toenails", "slurp spaghetti", "Highland dance", "waltz", "swordfight in slow motion", "ride #animal.a#", "work as #serviceOccupation.a#", "poop"
 	],
 	"basically":
 	[
