@@ -48,6 +48,8 @@ function titleLoop(keyPressed)
 		leftArrow.addEventListener("click", clickLeft);
 		rightArrow.addEventListener("click", clickRight);
 		
+		createjs.Sound.play("whodoyouwant");
+		
 		currentScreen = "select";
 	}
 }
