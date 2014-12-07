@@ -70,7 +70,7 @@
 	],
 	"name":
 	[
-		"Jamie", "Jackie", "Fred", "Dominique", "Valentine", "Rickie", "Shawn", "Devon", "Casey", "Kieran", "Quinn", "Ainsley", "Morgan", "Mackenzie", "Skeeter", "Nico", "Andy", "Kris", "Ivan", "Rae", "Damien", "Leslie", "Rowan", "Spike", "Storm", "Jess", "Maddox", "Kim", "Frankie", "Nick", "Nicky", "Jules", "Sky", "Rory", "Corey", "Alex", "Alexis", "Danny", "Leaf", "River", "Leigh", "Marty", "Darcy", "Charlie", "Ziggy", "Alonzo", "Aloysius", "Callisto", "Ocean", "Jean-Marie", "Laurence", "Ed", "Theo", "Dietrich", "Jo", "Jo-Jo", "Luca", "Mal", "Ronnie", "Su", "Felix", "Patrice", "Ash", "Sam", "Candy", "Apple", "Cosmo"
+		"Jamie", "Jackie", "Fred", "Dominique", "Valentine", "Rickie", "Shawn", "Devon", "Casey", "Kieran", "Quinn", "Ainsley", "Morgan", "Mackenzie", "Skeeter", "Nico", "Andy", "Kris", "Ivan", "Rae", "Damien", "Leslie", "Rowan", "Spike", "Storm", "Jess", "Maddox", "Kim", "Frankie", "Nick", "Nicky", "Jules", "Sky", "Rory", "Corey", "Alex", "Alexis", "Danny", "Leaf", "River", "Leigh", "Marty", "Darcy", "Charlie", "Ziggy", "Alonzo", "Aloysius", "Callisto", "Ocean", "Jean-Marie", "Laurence", "Ed", "Theo", "Dietrich", "Jo", "Jo-Jo", "Luca", "Mal", "Ronnie", "Su", "Felix", "Patrice", "Ash", "Sam", "Candy", "Apple", "Cosmo", "Jocelyn", "Jael", "Gael"
 	],
 	"person":
 	[
@@ -84,11 +84,11 @@
 	],
 	"gender":
 	[
-		"woman", "man", "guy", "gal", "butch", "femme", "androgyne", "birl", "cutie", "radical faerie", "nun", "wizard", "lady", "gentleman", "cyborg", "person of mysterious and indistinct gender", "human", "priest", "goddess", "Magical Girl", "heartthrob", "silver fox", "bear", "businessman", "businesswoman", "brony", "private detective", "executive transvestite", "Missingno.", "tentacle monster", "slime babe", "femme fatale", "homme fatale", "ghost"
+		"woman", "man", "guy", "gal", "butch", "femme", "androgyne", "birl", "cutie", "radical faerie", "nun", "wizard", "lady", "gentleman", "cyborg", "person of mysterious and indistinct gender", "human", "priest", "goddess", "Magical Girl", "heartthrob", "silver fox", "bear", "businessman", "businesswoman", "brony", "private detective", "executive transvestite", "Missingno.", "tentacle monster", "slime babe", "femme fatale", "homme fatale", "ghost", "Juggalo", "princess", "prince", "queen", "king", "quing", "dark elf", "halfling"
 	],
 	"accessory":
 	[
-		"pet #animal#", "tiara", "impossibly elaborate hat", "hurdy gurdy", "sense of adventure", "small child", "enormous Louis Vuitton suitcase", "fixie bike", "Ovation guitar", "pair of six-inch stilettos", "penchant for creative curses", "beautiful singing voice", "bouquet of white roses", "fedora", "trilby hat", "pair of light-up sneakers", "spiky Mario backpack", "posse of rainbow-haired punks", "pair of galaxy leggings", "sarong made from curtains", "heart of gold", "talking moustache", "small #animal# in a purse", "gold tooth", "mood ring", "tendency to leave glitter everywhere"
+		"pet #animal#", "tiara", "impossibly elaborate hat", "hurdy gurdy", "sense of adventure", "small child", "enormous Louis Vuitton suitcase", "fixie bike", "Ovation guitar", "pair of six-inch stilettos", "penchant for creative curses", "beautiful singing voice", "bouquet of white roses", "fedora", "trilby hat", "pair of light-up sneakers", "spiky Mario backpack", "posse of rainbow-haired punks", "pair of galaxy leggings", "sarong made from curtains", "heart of (literal) gold", "talking moustache", "small #animal# in a purse", "gold tooth", "mood ring", "tendency to leave glitter everywhere", "trombone", "sousaphone", "accordion", "keytar", "bassoon"
 	],
 	"out":
 	[
@@ -114,7 +114,7 @@
 	],
 	"food":
 	[
-		"curry", "pizza", "burrito", "taco", "spaghetti", "nachos", "poutine", "tapas", "BBQ", "meatball", "sushi", "dumpling", "pho", "banh mi", "jambalaya", "lasagna", "fried chicken", "borscht", "samosa", "perogy", "burger", "pita", "shawarma", "falafel", "salad", "pie", "cake", "dim sum", "crepe"
+		"curry", "pizza", "burrito", "taco", "spaghetti", "nachos", "poutine", "tapas", "BBQ", "meatball", "sushi", "dumpling", "pho", "banh mi", "jambalaya", "lasagna", "fried chicken", "borscht", "samosa", "perogy", "burger", "pita", "shawarma", "falafel", "salad", "pie", "cake", "dim sum", "crepe", "haggis", "kebab", "pancit", "ramen"
 	],
 	"superNationality":
 	[
@@ -187,7 +187,7 @@
 	],
 	"currentEvent":
 	[
-		"Ferguson", "Palestine", "Ebola", "same-sex marriage", "the new Star Wars movie", "climate change", "ethics in games journalism", "the war on terror", "the war on Christmas", "abortion", "marijuana legalization", "Iraq", "immigration reform", "women in tech", "real-name policies", "ISIS", "Syria", "gun control", "gentrification", "the Google buses", "Google Glass"
+		"Ferguson", "Palestine", "Ebola", "same-sex marriage", "the new Star Wars movie", "climate change", "ethics in games journalism", "the war on terror", "the war on Christmas", "abortion", "marijuana legalization", "Iraq", "immigration reform", "women in tech", "real-name policies", "ISIS", "Syria", "gun control", "gentrification", "the Google buses", "Google Glass", "police brutality"
 	],
 	"performance":
 	[
@@ -203,7 +203,7 @@
 	],
 	"animal":
 	[
-		"cat", "dog", "monkey", "elephant", "giraffe", "hippopotamus", "rhinoceros", "rat", "hamster", "pig", "chicken", "turkey", "iguana", "lizard", "alpaca", "llama", "emu", "flamingo", "bear", "otter", "cougar", "whale", "pigeon"
+		"cat", "dog", "monkey", "elephant", "giraffe", "hippopotamus", "rhinoceros", "rat", "hamster", "pig", "chicken", "turkey", "iguana", "lizard", "alpaca", "llama", "emu", "flamingo", "bear", "otter", "cougar", "whale", "pigeon", "horse"
 	],
 	"game":
 	[
@@ -226,11 +226,11 @@
 	],
 	"gamesPeople":
 	[
-		"people", "gamers", "game critics", "games academics", "game journalists", "old-school game designers", "nincompoops", "conservative politicians", "uptight squares"
+		"people", "gamers", "game critics", "games academics", "game journalists", "old-school game designers", "nincompoops", "conservative politicians", "uptight squares", "doody heads"
 	],
 	"sillyVerb":
 	[
-		"read things", "read tea leaves", "flirt", "kiss cuties", "make #animal# noises", "perform silly walks", "do jumping jacks", "dance", "sing", "collect gossip", "roll around in a ball", "stare at butts", "pet #animal.s#", "clip toenails", "slurp spaghetti", "Highland dance", "waltz", "swordfight in slow motion", "ride #animal.a#", "work as #serviceOccupation.a#", "poop"
+		"read things", "read tea leaves", "flirt", "kiss cuties", "make #animal# noises", "perform silly walks", "do jumping jacks", "dance", "sing", "collect gossip", "roll around in a ball", "stare at butts", "pet #animal.s#", "clip toenails", "slurp spaghetti", "Highland dance", "waltz", "swordfight in slow motion", "ride #animal.a#", "work as #serviceOccupation.a#", "poop", "juggle", "fart"
 	],
 	"basically":
 	[
@@ -242,7 +242,7 @@
 	],
 	"magical":
 	[
-		"#magical#, #magical#", "impossibly #magical#", "magical", "life-changing", "haunted", "cursed", "beautiful"
+		"#magical#, #magical#", "impossibly #magical#", "magical", "life-changing", "haunted", "cursed", "beautiful", "enchanted"
 	],
 	"superAdjective":
 	[

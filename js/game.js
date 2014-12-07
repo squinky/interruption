@@ -3,6 +3,7 @@ var player;
 var npc = [];
 var bg, table;
 var speaker;
+var bgm;
 
 var PLAYER_SPEAKING = 99;
 var BUTTON_DELAY = 1000;
@@ -66,6 +67,8 @@ function startGame()
 	stage.addChild(speechBubble);
 	stage.addChild(clickyBox);
 	
+	bgm = createjs.Sound.play("ipanema", {loop: -1});
+	
 	currentScreen = "game";
 }
 
@@ -78,6 +81,7 @@ function gameLoop(keyPressed)
 	{
 		screenFade += timeSinceLastTick;
 		clickyBox.alpha = screenFade/SCREEN_FADE_TIME;
+		createjs.Sound.setVolume(1-clickyBox.alpha);
 		if (clickyBox.alpha >= 1)
 		{
 			endGame();
@@ -153,6 +157,7 @@ function playerStartSpeaking()
 	npc[speaker].gotoAndPlay("bored");
 	speaker = PLAYER_SPEAKING;
 	player.gotoAndPlay("point-talk");
+	startBlabbing();
 	turnToFaceSpeaker();
 	initSpeechBubble();
 }
@@ -173,6 +178,7 @@ function pickSpeaker()
 			npc[lastSpeaker].gotoAndPlay("neutral");
 		}
 		npc[speaker].gotoAndPlay("point-talk");
+		startBlabbing();
 		turnToFaceSpeaker();
 		initSpeechBubble();
 	}
@@ -204,5 +210,7 @@ function endGame()
 {
 	stage.removeAllChildren();
 	clickyBox.alpha = 0.01;
+	bgm.stop();
+	endBlabbing();
 	showTitle();
 }

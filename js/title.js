@@ -6,6 +6,10 @@ function showTitle()
 	stage.addChild(titleBg);
 	stage.addChild(title);
 	stage.addChild(clickyBox);
+	
+	createjs.Sound.setVolume(1);
+	createjs.Sound.play("themesong");
+	
 	currentScreen = "title";
 }
 
@@ -15,6 +19,7 @@ function titleLoop(keyPressed)
 	{
 		stage.removeChild(title);
 		stage.removeChild(clickyBox);
+		createjs.Sound.play("cough");
 		
 		selectText = new createjs.Text();
 		selectText.font = "bold italic 72px Comic Neue Angular";
@@ -73,6 +78,11 @@ function selectLoop(keyPressed)
 		
 		npc.sort(function() {return 0.5 - Math.random()});
 		
+		voices = [1, 2, 3, 4];
+		voices.sort(function() {return 0.5 - Math.random()});
+		voices[PLAYER_SPEAKING] = voices[3];
+		
+		createjs.Sound.play("cough");
 		stage.removeAllChildren();
 		startGame();
 	}
@@ -82,6 +92,7 @@ function selectLoop(keyPressed)
 		selectedCharacter++;
 		if (selectedCharacter > 3) selectedCharacter = 0;
 		changePlayer();
+		createjs.Sound.play("ahem");
 		stage.addChild(player);
 	}
 	if (keyPressed == "left")
@@ -90,6 +101,7 @@ function selectLoop(keyPressed)
 		selectedCharacter--;
 		if (selectedCharacter < 0) selectedCharacter = 3;
 		changePlayer();
+		createjs.Sound.play("ahem");
 		stage.addChild(player);
 	}
 }

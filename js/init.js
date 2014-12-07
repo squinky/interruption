@@ -18,7 +18,7 @@ function init()
 	
 	loadText = new createjs.Text();
 	loadText.font = "bold italic 72px Comic Neue Angular";
-	loadText.text = "LOADING...";
+	loadText.text = "LOADING: 0%";
 	loadText.color = "#000000";
 	loadText.textAlign = "center";
 	loadText.x = 512;
@@ -32,27 +32,13 @@ function init()
 	
 	this.document.onkeyup = keyup;
 	
+	createjs.Sound.alternateExtensions = ["mp3"];
+	
 	queue = new createjs.LoadQueue(true);
+	queue.installPlugin(createjs.Sound);
 	queue.on("complete", loadingComplete, this);
 	console.log("Reticulating splines...");
-	queue.loadManifest
-	([
-		{ id: "title", src: "img/title.png" },
-		{ id: "title-bg", src: "img/title-bg.png" },
-		{ id: "arrow", src: "img/arrow.png" },
-		{ id: "bg", src: "img/bg.png" },
-		{ id: "table", src: "img/table.png" },
-		{ id: "speech-bubble", src: "img/speech-bubble.png" },
-		{ id: "character-a", src: "img/character-a.png" },
-		{ id: "character-a-frames", src: "data/character-a.json" },
-		{ id: "character-b", src: "img/character-b.png" },
-		{ id: "character-b-frames", src: "data/character-b.json" },
-		{ id: "character-c", src: "img/character-c.png" },
-		{ id: "character-c-frames", src: "data/character-c.json" },
-		{ id: "character-d", src: "img/character-d.png" },
-		{ id: "character-d-frames", src: "data/character-d.json" },
-		{ id: "dialogue", src: "data/dialogue.json" }
-	]);
+	queue.loadManifest(manifest);
 }
 
 function loadingComplete()
@@ -125,6 +111,7 @@ function tick()
 	{
 		// dealing with FOUT
 		if (createjs.Ticker.getTime() > 500) loadText.color = "#ffffff";
+		loadText.text = "LOADING: "+Math.floor(queue.progress*100)+"%";
 	}
 	
 	keys = [];
