@@ -19,6 +19,7 @@ function titleLoop(keyPressed)
 	{
 		stage.removeChild(title);
 		stage.removeChild(clickyBox);
+		createjs.Sound.stop();
 		createjs.Sound.play("cough");
 		
 		selectText = new createjs.Text();
@@ -48,7 +49,7 @@ function titleLoop(keyPressed)
 		leftArrow.addEventListener("click", clickLeft);
 		rightArrow.addEventListener("click", clickRight);
 		
-		createjs.Sound.play("whodoyouwant");
+		createjs.Sound.play("whodoyouwant", {delay: 500});
 		
 		currentScreen = "select";
 	}
@@ -84,6 +85,7 @@ function selectLoop(keyPressed)
 		voices.sort(function() {return 0.5 - Math.random()});
 		voices[PLAYER_SPEAKING] = voices[3];
 		
+		createjs.Sound.stop();
 		createjs.Sound.play("cough");
 		stage.removeAllChildren();
 		startGame();
