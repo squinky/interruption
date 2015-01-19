@@ -10,9 +10,10 @@ var BUTTON_DELAY = 1000;
 var START_FADING = 10000;
 var CHARACTER_FADE_TIME = 20000;
 var SCREEN_FADE_TIME = 5000;
+var BG_FADE_TIME = 600000;
 
 var lastTickTime, buttonLastPressed, buttonPressInterval, continuousMashingTime;
-var playerFade, npcFade, screenFade;
+var playerFade, npcFade, screenFade, bgFade;
 var gameOver;
 
 function startGame()
@@ -27,6 +28,7 @@ function startGame()
 	playerFade = 0;
 	npcFade = 0;
 	screenFade = 0;
+	bgFade = 0;
 	gameOver = false;
 	
 	speechBubble.alpha = 0;
@@ -76,6 +78,9 @@ function gameLoop(keyPressed)
 {
 	var timeSinceLastTick = createjs.Ticker.getTime() - lastTickTime;
 	lastTickTime = createjs.Ticker.getTime();
+	
+	bgFade += timeSinceLastTick;
+	bg.alpha = (BG_FADE_TIME-bgFade)/BG_FADE_TIME;
 	
 	if (gameOver)
 	{

@@ -59,6 +59,9 @@ function addToSpeechBubble()
 
 function updateSpeechBubble(speedModifier)
 {
+	if (speaker == PLAYER_SPEAKING) speechBubble.alpha = 1-(speedModifier*0.1);
+	else speechBubble.alpha = 1;
+	
 	if (!paused)
 	{
 		speechText.text += currentLine[currentChar];

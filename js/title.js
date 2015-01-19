@@ -1,5 +1,8 @@
 var title, titleBg, leftArrow, rightArrow;
 var selectedCharacter;
+var titleStartTime;
+
+var TITLE_DELAY = 2000;
 
 function showTitle()
 {
@@ -11,11 +14,13 @@ function showTitle()
 	createjs.Sound.play("themesong");
 	
 	currentScreen = "title";
+	titleStartTime = createjs.Ticker.getTime();
 }
 
 function titleLoop(keyPressed)
 {
-	if (keyPressed == "space")
+	var timeElapsed = createjs.Ticker.getTime() - titleStartTime;
+	if (keyPressed == "space" && timeElapsed > TITLE_DELAY)
 	{
 		stage.removeChild(title);
 		stage.removeChild(clickyBox);

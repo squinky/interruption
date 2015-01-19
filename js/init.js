@@ -19,7 +19,7 @@ function init()
 	loadText = new createjs.Text();
 	loadText.font = "bold italic 72px Comic Neue Angular";
 	loadText.text = "LOADING: 0%";
-	loadText.color = "#000000";
+	loadText.color = "#ffffff";
 	loadText.textAlign = "center";
 	loadText.x = 512;
 	loadText.y = 384-36;
@@ -109,8 +109,6 @@ function tick()
 	
 	if (currentScreen == "loading")
 	{
-		// dealing with FOUT
-		if (createjs.Ticker.getTime() > 500) loadText.color = "#ffffff";
 		loadText.text = "LOADING: "+Math.floor(queue.progress*100)+"%";
 	}
 	
