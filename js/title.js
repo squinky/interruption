@@ -20,7 +20,7 @@ function showTitle()
 function titleLoop(keyPressed)
 {
 	var timeElapsed = createjs.Ticker.getTime() - titleStartTime;
-	if ((keyPressed == "space" || keyPressed == "right" || keypressed == "left") &&
+	if ((keyPressed == "space" || keyPressed == "right" || keyPressed == "left") &&
 		timeElapsed > TITLE_DELAY)
 	{
 		stage.removeChild(title);
