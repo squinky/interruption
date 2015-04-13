@@ -94,7 +94,8 @@ function gameLoop(keyPressed)
 		}
 	}
 	
-	if (!gameOver && keyPressed == "space")
+	if (!gameOver &&
+		(keyPressed == "space" || keyPressed == "right" || keypressed == "left"))
 	{
 		if (playerFade)
 		{
